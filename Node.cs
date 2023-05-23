@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace stack
+namespace Queue
 {
     public class Node
     {
@@ -21,9 +21,8 @@ namespace stack
         {
 
         }
-        //Insert Element at end
         public void InsertAtEnd(int data)   // 1   2    3    4    5    6    7   ----index 
-        {                                                               //->push                             
+        {                                                               //->Enqueue(push)                            
             Node temp = head;
             Node newnode = new Node(data);
             if (head == null)
@@ -39,22 +38,13 @@ namespace stack
                 temp.next = newnode;
             }
         }
-        //Remove the element from end
-        public void RemoveAtEnd()   // 1   2    3    4    5    6    7   ----index
-        {                                                           //-->pop
+        public void RemoveAtStart()         // 1   2    3    4    5    6    7   ----index
+        {                                   //<-Dequeue(pop)
             if (head == null)
             {
                 return;
             }
-            Node previous = null;
-            Node temp = head;
-
-            while (temp.next != null)
-            {
-                previous = temp;
-                temp = temp.next;
-            }
-            previous.next = null;
+            head = head.next;
         }
 
         public void Display()

@@ -1,12 +1,10 @@
-﻿using System.Xml.Linq;
-
-namespace stack
+﻿namespace Queue
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //stack
+            //Queue
 
             Node n = new Node();
             n.InsertAtEnd(10);
@@ -20,11 +18,11 @@ namespace stack
             n.InsertAtEnd(50);
             n.Display();
 
-            n.RemoveAtEnd();
+            n.RemoveAtStart();
             n.Display();
-            n.RemoveAtEnd();
+            n.RemoveAtStart();
             n.Display();
-            n.RemoveAtEnd();
+            n.RemoveAtStart();
             n.Display();
         }
     }
