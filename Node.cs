@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedList
+namespace stack
 {
     public class Node
     {
@@ -21,25 +21,9 @@ namespace LinkedList
         {
 
         }
-
-        //Insert element at start
-        public void InsertAtStart(int data)
-        {
-            Node newnode = new Node(data); // 1   2    3    4    5    6    7   ----index
-            if (head == null)              //10 ->
-            {
-                head = newnode;
-            }
-            else
-            {
-                newnode.next = head;
-                head = newnode;
-            }
-        }
-
-        //Insert element at the end
-        public void InsertAtEnd(int data)   
-        {                                  
+        //Insert Element at end
+        public void InsertAtEnd(int data)   // 1   2    3    4    5    6    7   ----index 
+        {                                                               //->push                             
             Node temp = head;
             Node newnode = new Node(data);
             if (head == null)
@@ -55,54 +39,9 @@ namespace LinkedList
                 temp.next = newnode;
             }
         }
-
-        //Insert at position
-        public void InsertatPosition(int position, int data)
-        {
-            Node newnode = new Node(data);
-            if (head == null)
-            {
-                return;
-            }
-
-            if (position == 1 || head == null)
-            {
-                InsertAtStart(data);
-                return;
-            }
-
-            Node previous = null;
-            Node temp = head;
-            int count = 1;
-            while (temp != null && count < position)
-            {
-                previous = temp;
-                temp = temp.next;
-                count++;
-            }
-
-            if (temp == null)
-            {
-                Console.WriteLine("Invalid position");
-                return;
-            }
-            previous.next = newnode;
-            newnode.next = temp;
-        }
-
-        //Remove element from start
-        public void RemoveAtStart()
-        {
-            if (head == null)
-            {
-                return;
-            }
-            head = head.next;
-        }
-
-        //Remove Element at the end
-        public void RemoveAtEnd()
-        {
+        //Remove the element from end
+        public void RemoveAtEnd()   // 1   2    3    4    5    6    7   ----index
+        {                                                           //-->pop
             if (head == null)
             {
                 return;
@@ -118,47 +57,6 @@ namespace LinkedList
             previous.next = null;
         }
 
-        // Remove element at position
-        public void RemoveAtPosition(int position)
-        {
-            if (head == null)
-            {
-                Console.WriteLine("List is empty");
-                return;
-            }
-
-            if (position <= 0)
-            {
-                Console.WriteLine("Invalid position");
-                return;
-            }
-
-            if (position == 1)
-            {
-                RemoveAtStart();
-                return;
-            }
-
-            Node previous = null;
-            Node temp = head;
-            int count = 1;
-
-            while (temp != null && count < position)
-            {
-                previous = temp;
-                temp = temp.next;
-                count++;
-            }
-
-            if (temp == null)
-            {
-                Console.WriteLine("Invalid position");
-                return;
-            }
-            previous.next = temp.next;
-        }
-
-        //Display method 
         public void Display()
         {
             Node temp = head;

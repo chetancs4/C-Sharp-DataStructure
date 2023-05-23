@@ -1,32 +1,30 @@
-﻿using LinkedList;
+﻿using System.Xml.Linq;
 
-namespace LinkedListPrac
+namespace stack
 {
-    public class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            //Linked List
+            //stack
 
             Node n = new Node();
-            n.InsertAtStart(10);
+            n.InsertAtEnd(10);
             n.Display();
-            n.InsertAtStart(50);
-            n.Display();
-            n.InsertAtStart(70);
+            n.InsertAtEnd(20);
             n.Display();
             n.InsertAtEnd(30);
             n.Display();
-            n.InsertatPosition(2, 38);
+            n.InsertAtEnd(40);
+            n.Display();
+            n.InsertAtEnd(50);
             n.Display();
 
-            n.RemoveAtStart();
+            n.RemoveAtEnd();
             n.Display();
             n.RemoveAtEnd();
             n.Display();
-            n.RemoveAtPosition(2);
-            n.Display();
-            n.RemoveAtStart();
+            n.RemoveAtEnd();
             n.Display();
         }
     }
